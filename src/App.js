@@ -228,7 +228,20 @@ const App = () => {
     const handleKeyPress = (e) => {
       const audioElement = document.getElementById(e.key.toUpperCase());
       if (audioElement) {
-        playAndSave(audioElement);
+        // This is the same code as the playAndSave function but had to be repeated here because of the exhaustivce deps. Maybe needs more research how to fix this without repeating the code.
+        audioElement.currentTime = 0;
+        audioElement.play();
+        if (playing && recording && addedSoundsArray.length < 15) {
+          setAddedSoundsArray((prev) => {
+            return [
+              ...prev,
+            {
+            audioElement: audioElement,
+            timeout: Math.round((Date.now() - loopStart) / beatLength * 100 ) / 100 + Math.round(Math.random() * 1000) / 100000,
+            }
+            ];
+          });
+        }
         setCurrentSound(audioElement.parentElement.id);
       }
     };
@@ -237,7 +250,7 @@ const App = () => {
     return function cleanUp() {
       document.removeEventListener("keydown", handleKeyPress);
     };
-  }, [playAndSave]);
+  }, [addedSoundsArray, beatLength, loopStart, playing, recording]);
 
   const upOrDownInCombination = (id, rank, up) => {
     const currentlySelected = loops.find((loop) => loop.id === id);
@@ -358,6 +371,7 @@ const App = () => {
             makeNewLoop={makeNewLoop}
             deleteLoop={deleteLoop}
             handleLoopClick={handleLoopClick}
+            handleCloseClick={() => {setLoopsListView(false)}}
           />
         ) : (
           <React.Fragment>
