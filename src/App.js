@@ -5,8 +5,8 @@ import LoopCombiner from './components/loopcombiner/LoopCombiner';
 import VisualDrumPattern from './components/visualdrumpattern/VisualDrumPattern';
 import Controls from './components/controls/Controls';
 import TempoSlider from './components/controls/TempoSlider';
-import Display from './components/drumkit/Display';
-import LoopDisplay from './components/controls/LoopDisplay';
+// import Display from './components/drumkit/Display';
+// import LoopDisplay from './components/controls/LoopDisplay';
 import VisualDrumPatternState from './context/visualdrumpattern/VisualDrumPatternState';
 
 const App = () => {
@@ -31,7 +31,6 @@ const App = () => {
   const [loopCombination, setLoopCombination] = React.useState([1, 1, 1, 1]);
   const [playingCombination, setPlayingCombination] = React.useState(false);
   const [comboIndex, setComboIndex] = React.useState(0);
-  const [anyPointsSelected, setAnyPointsSelected] = React.useState(false);
 
   const selectLoop = (id, newLoop = false) => {
     if (id !== currentLoopId) {
@@ -171,6 +170,7 @@ const App = () => {
         setPulse(false);
       }, 150);
     }
+  // eslint-disable-next-line  
   }, [playing, loopEnd]);
 
   const handleClick = (e) => {
@@ -189,13 +189,13 @@ const App = () => {
     setCurrentSound(null);
   };
 
-  const handleKeyPress = (e) => {
-    const audioElement = document.getElementById(e.key.toUpperCase());
-    if (audioElement) {
-      playAndSave(audioElement);
-      setCurrentSound(audioElement.parentElement.id);
-    }
-  };
+  // const handleKeyPress = (e) => {
+  //   const audioElement = document.getElementById(e.key.toUpperCase());
+  //   if (audioElement) {
+  //     playAndSave(audioElement);
+  //     setCurrentSound(audioElement.parentElement.id);
+  //   }
+  // };
 
   function playAndSave(audioElement) {
     audioElement.currentTime = 0;
@@ -225,11 +225,19 @@ const App = () => {
   };
 
   React.useEffect(() => {
+    const handleKeyPress = (e) => {
+      const audioElement = document.getElementById(e.key.toUpperCase());
+      if (audioElement) {
+        playAndSave(audioElement);
+        setCurrentSound(audioElement.parentElement.id);
+      }
+    };
+
     document.addEventListener("keydown", handleKeyPress);
     return function cleanUp() {
       document.removeEventListener("keydown", handleKeyPress);
     };
-  }, [handleKeyPress]);
+  }, [playAndSave]);
 
   const upOrDownInCombination = (id, rank, up) => {
     const currentlySelected = loops.find((loop) => loop.id === id);

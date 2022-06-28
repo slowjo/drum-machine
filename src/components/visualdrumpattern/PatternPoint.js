@@ -107,6 +107,7 @@ const PatternPoint = ({ timeout, barRef, mouseIn, interactive, sendDataForMove, 
         }
       }
     }
+  // eslint-disable-next-line  
   }, [mouseDown]);
 
     return (

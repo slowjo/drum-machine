@@ -13,6 +13,7 @@ const PatternBar = ({ sound, timeouts, playing, loopEnd, mouseIn, interactive, r
         setDeleteTimeOuts([...timeouts]);
         setTrackTimeOuts([...timeouts]);
       }
+    // eslint-disable-next-line  
     }, [timeouts]);
 
     const sendDataForMove = (newPoint, oldPoint) => {

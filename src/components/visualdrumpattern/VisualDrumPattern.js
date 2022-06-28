@@ -61,6 +61,7 @@ const VisualDrumPattern = ({
         setAddedSoundsTracker([...addedSoundsArray]);
         setPrelimArrayForDel([...addedSoundsArray]);
       }
+    // eslint-disable-next-line  
     }, [addedSoundsArray]);
 
     const currentLoop = loops.find((loop) => loop.id === currentLoopId);
