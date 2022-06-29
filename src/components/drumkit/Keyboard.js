@@ -10,17 +10,19 @@ const Keyboard = (props) => {
   
     return (
       <div className="keyboard mb-3" style={props.mobile ? {width: '100%'} : {}}>
-        <div className="flex flex-center flex-space-between mb-1">
-          <h2 className="text-center mt-0">
-            <i className="fa-solid fa-drum"></i> Drum Kit
-          </h2>
-          <div>
-            <button className={recordClassName} onClick={props.record}>
-              <i className="fa-solid fa-circle"></i>{" "}
-              {props.recording ? "Stop Recording" : "Start Recording"}
-            </button>
+        {!props.mobile && (
+          <div className="flex flex-center flex-space-between mb-1">
+            <h2 className="text-center mt-0">
+              <i className="fa-solid fa-drum"></i> Drum Kit
+            </h2>
+            <div>
+              <button className={recordClassName} onClick={props.record}>
+                <i className="fa-solid fa-circle"></i>{" "}
+                {props.recording ? "Stop Recording" : "Start Recording"}
+              </button>
+            </div>
           </div>
-        </div>
+        )}
         <div className={`${!props.mobile ? 'flex flex-gap-1' : '' }`} >
           <div className="pads flex-2" style={props.mobile ? {maxWidth: '100%'} : {}} onClick={props.mobile ? () => {} : props.handleClick} onTouchStart={props.handleClick}>
             {pads.map((pad) => (
@@ -40,6 +42,14 @@ const Keyboard = (props) => {
             )
           }
         </div>
+        {props.mobile && (
+            <div className='flex flex-center mt-1'>
+              <button className={recordClassName} onClick={props.record}>
+                <i className="fa-solid fa-circle"></i>{" "}
+                {props.recording ? "Stop Recording" : "Start Recording"}
+              </button>
+            </div>
+        )}
       </div>
     );
   };

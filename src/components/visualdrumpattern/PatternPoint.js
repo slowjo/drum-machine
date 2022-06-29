@@ -128,7 +128,7 @@ const PatternPoint = ({ timeout, barRef, mouseIn, interactive, sendDataForMove, 
       ) : (
         <div
           className="pattern-point"
-          style={{ left: `calc((${timeout} * 25%))`, backgroundColor: 'var(--primary-color)' }}
+          style={{ left: `calc((${timeout} * 25%))`, backgroundColor: 'darkgrey' }}
           ref={pointRef}
         ></div>
       )}
