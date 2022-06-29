@@ -22,7 +22,7 @@ const Keyboard = (props) => {
           </div>
         </div>
         <div className={`${!props.mobile ? 'flex flex-gap-1' : '' }`} >
-          <div className="pads flex-2" style={props.mobile ? {maxWidth: '100%'} : {}} onClick={props.handleClick} onTouchStart={props.handleClick}>
+          <div className="pads flex-2" style={props.mobile ? {maxWidth: '100%'} : {}} onClick={props.mobile ? () => {} : props.handleClick} onTouchStart={props.handleClick}>
             {pads.map((pad) => (
               <DrumPad
                 key={pad.sound}
