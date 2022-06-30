@@ -12,14 +12,14 @@ const Controls = ({
   }) => {
     const [style, setStyle] = React.useState({
       transform: "scale(1)",
-      background: "var(--primary-color)"
+      background: "var(--dark-color)"
     });
   
     React.useEffect(() => {
       setStyle((prev) => ({
         ...prev,
         transform: pulse ? "scale(1.1)" : "scale(1)",
-        background: playing ? "var(--accent-color)" : "var(--primary-color)"
+        background: playing ? "var(--accent-color)" : "var(--dark-color)"
       }));
     }, [playing, pulse]);
   

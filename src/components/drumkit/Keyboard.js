@@ -3,7 +3,7 @@ import Display from './Display';
 import { pads } from '../../data/pads';
 
 const Keyboard = (props) => {
-    let recordClassName = "btn btn-pill btn-primary";
+    let recordClassName = "btn btn-pill btn-dark";
     if (props.recording) {
       recordClassName += " btn-on";
     }

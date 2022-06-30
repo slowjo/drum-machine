@@ -116,7 +116,7 @@ const PatternPoint = ({ timeout, barRef, mouseIn, interactive, sendDataForMove, 
         <div
           className="pattern-point"
           style={{ left: `calc((${timeout} * 25%))`, cursor: 'pointer', 
-            backgroundColor: `${selected ? 'var(--accent-color)' : 'var(--dark-color)'}`,
+            backgroundColor: `${selected ? 'var(--accent-color)' : 'var(--primary-color)'}`,
            }}
           ref={pointRef}
           onMouseDown={add}

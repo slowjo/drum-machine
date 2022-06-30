@@ -401,8 +401,8 @@ const App = () => {
             {/* <LoopDisplay currentLoopId={currentLoopId} loops={loops} /> */}
           </React.Fragment>
         )}
-        <div className="bottom-bar flex flex-center flex-space-between px-1">
-          <p className="flex-1">Loop</p>
+        <div className="bottom-bar flex flex-center px-1">
+          {/* <p className="flex-1">Loop</p> */}
           <Controls
             startStop={startStop}
             playing={playing}
@@ -410,10 +410,10 @@ const App = () => {
             nextLoop={nextLoop}
             previousLoop={previousLoop}
           />
-          <TempoSlider
+          {/* <TempoSlider
             beatLength={beatLength}
             handleTempoChange={handleTempoChange}
-          />
+          /> */}
         </div>
       </div>
     </React.Fragment>

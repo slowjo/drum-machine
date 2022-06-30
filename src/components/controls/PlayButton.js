@@ -1,7 +1,7 @@
 const PlayButton = ({ startStop, style, playing }) => {
     return (
         <button
-            className="btn btn-round start"
+            className="btn btn-round btn-dark"
             onClick={startStop}
             style={style}
         >

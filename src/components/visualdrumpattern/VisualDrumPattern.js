@@ -122,7 +122,7 @@ const VisualDrumPattern = ({
       arrayForRender.push(arrayElement);
     }
   
-    let trashClassName = "btn btn-pill";
+    let trashClassName = "btn btn-pill btn-border";
     if (!soundsAdded) {
       trashClassName += " btn-disabled";
     }
