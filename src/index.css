@@ -64,6 +64,7 @@ body {
   grid-area: header;
   align-items: center;
   justify-content: center;
+  margin-top: 1.5em;
 }
 
 .mobile-header-title {
@@ -79,6 +80,10 @@ body {
 
 .mobile-header-title {
   z-index: 2;
+}
+
+.mobile-header-title.title {
+  font-size: 3.9rem;
 }
 
 .mobile-header-background {
