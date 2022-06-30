@@ -8,6 +8,7 @@ import TempoSlider from './components/controls/TempoSlider';
 // import Display from './components/drumkit/Display';
 // import LoopDisplay from './components/controls/LoopDisplay';
 import VisualDrumPatternState from './context/visualdrumpattern/VisualDrumPatternState';
+import MobileHeader from './components/header/MobileHeader';
 
 const App = () => {
   const [currentSound, setCurrentSound] = React.useState("");
@@ -360,9 +361,7 @@ const App = () => {
       </div>
 
       <div id="drum-machine-mobile" className="mobile">
-        <h1 className="title">
-          <span className="primary-color">Drum</span> Machine
-        </h1>
+        <MobileHeader />
         {loopsListView ? (
           <LoopList
             loops={loops}
